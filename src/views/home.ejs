@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>F1 Drivers 2024</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+      padding: 1rem;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .driver-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .driver-card {
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 100%;
+      max-width: 300px;
+    }
+
+    .driver-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .driver-name {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      margin-top: 10px;
+    }
+
+    .driver-details {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .driver-number {
+      background-color: #007bff;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 50%;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #007bff;
+      font-weight: bold;
+      margin-top: 10px;
+      display: inline-block;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      .driver-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .driver-list {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>F1 Drivers (2024 Season)</h1>
+
+    <div class="driver-list">
+      <% drivers.forEach(driver => { %>
+        <div class="driver-card">
+            <img src="<%= driver.imageUrl %>" alt="<%= driver.familyName %>">
+            <h2 class="driver-name"><%= driver.givenName %> <%= driver.familyName %></h2>
+            <p class="driver-details"><strong>Nationality:</strong> <%= driver.nationality %></p>
+            <p class="driver-details"><strong>Date of Birth:</strong> <%= driver.dateOfBirth %></p>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+
+</body>
+</html>
